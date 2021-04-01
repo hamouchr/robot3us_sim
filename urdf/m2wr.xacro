@@ -16,7 +16,7 @@
   <xacro:include filename="$(find robot3us_sim)/urdf/macro.xacro" />
   
   <!-- Defining link chassis -->
-  <link name="link_chassis">
+  <link name="link_chassis_rb3">
     <!-- pose and inertial -->
     <pose>0 0 0.1 0 0 0</pose>
   <!--  
@@ -200,27 +200,27 @@
 
   <joint name="joint_sensor_laser" type="fixed">
     <origin xyz="0.15 0 0.05" rpy="0 0 0"/>
-    <parent link="link_chassis"/>
+    <parent link="link_chassis_rb3"/>
     <child link="sensor_laser"/>
   </joint>
 
    <joint name="joint_sensor_us_front" type="fixed">
     <origin xyz="0.25 0 0.02" rpy="0 0 0"/>
-    <parent link="link_chassis"/>
+    <parent link="link_chassis_rb3"/>
     <child link="sensor_us_link_front"/>
   </joint>
 
 
    <joint name="joint_sensor_us_right" type="fixed">
     <origin xyz="0.15 0.15 0" rpy="0 0 1.57"/>
-    <parent link="link_chassis"/>
+    <parent link="link_chassis_rb3"/>
     <child link="sensor_us_link_right"/>
   </joint>
 
   
    <joint name="joint_sensor_us_left" type="fixed">
     <origin xyz="0.15 -0.15 0" rpy="0 0 -1.57"/>
-    <parent link="link_chassis"/>
+    <parent link="link_chassis_rb3"/>
     <child link="sensor_us_link_left"/>
   </joint>
 

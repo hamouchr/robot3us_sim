@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <robot name="m2wr" xmlns:xacro="https://www.ros.org/wiki/xacro" >
   <!-- Define color for robot parts -->
-  <gazebo reference="link_chassis">
+  <gazebo reference="link_chassis_rb3">
     <material>Gazebo/Orange</material>
   </gazebo>
   <gazebo reference="link_left_wheel">
@@ -25,7 +25,7 @@
       <commandTopic>robot3us/cmd_vel</commandTopic>
       <odometryTopic>robot3us/odom</odometryTopic>
       <odometryFrame>robor3us/odom</odometryFrame>
-      <robotBaseFrame>link_chassis</robotBaseFrame>
+      <robotBaseFrame>link_chassis_rb3</robotBaseFrame>
     </plugin>
   </gazebo>
 </robot>
