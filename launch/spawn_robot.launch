@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Simulate robot in gazebo: To load our robot into the empty world  -->
 <launch>
+<arg name="nom" default="r1"/>
     <param name="robot_description" command="$(find xacro)/xacro.py '$(find robot3us_sim)/urdf/m2wr.xacro'" />
 
     <arg name="x" default="2"/>
@@ -12,8 +13,11 @@
      <arg name="gui" value="false" />
     </include>
     -->
-    <node name="mybot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
+  <!--
+    <node  ns = "t1" name="mybot_spawn2" pkg="gazebo_ros" type="spawn_model" output="screen"
           args="-urdf -param robot_description -model m2wr -x $(arg x) -y $(arg y) -z $(arg z)" />
+  -->
+ <node ns="$(arg nom)" name="urdf_spawner_$(arg nom)" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-x $(arg x) -y $(arg y) -z $(arg z) -unpause -urdf -model model_$(arg nom) -param /robot_description"/>
 
 
 </launch>

@@ -2,7 +2,11 @@
 <launch>
 
 <arg name="world" default="world1" />
-  
+  <arg name="nom" default="r1"/>
+   <arg name="x" default="2"/>
+    <arg name="y" default="2"/>
+    <arg name="z" default="0.0"/>
+
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find robot3us_sim)/worlds/$(arg world).world"/>
     <arg name="debug" value="false"/>
@@ -14,16 +18,21 @@
   </include>
 
 
-<include file="$(find robot3us_sim)/launch/spawn_robot.launch" />
+<!--include file="$(find robot3us_sim)/launch/spawn_robot.launch" /-->
+
+<param name="robot_description" command="$(find xacro)/xacro.py '$(find robot3us_sim)/urdf/m2wr.xacro'" />
+
+ <node ns="$(arg nom)" name="urdf_spawner_$(arg nom)" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-x $(arg x) -y $(arg y) -z $(arg z) -unpause -urdf -model model_$(arg nom) -param /robot_description"/>
+
 
 <!-- send fake joint values -->
-  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+  <node  name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
     <param name="use_gui" value="False"/>
   </node>
 
   <!-- Combine joint values -->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
+  <node  name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
 
   <!-- Show in Rviz   -->
- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find robot3us_sim)/config/robot3us.rviz" />
+ <node  name="rviz" pkg="rviz" type="rviz" args="-d $(find robot3us_sim)/config/robot3us.rviz" />
 </launch>

@@ -338,7 +338,7 @@
    </sensor>
    </gazebo>
 
-  <gazebo reference="sensor_laser">
+  <!--gazebo reference="sensor_laser">
     <sensor type="ray" name="head_hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
       <visualize>false</visualize>
@@ -368,7 +368,7 @@
         <frameName>sensor_laser</frameName>
       </plugin>
     </sensor>
-  </gazebo>
+  </gazebo-->
 
 
 
