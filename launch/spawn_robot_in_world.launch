@@ -22,7 +22,7 @@
 
 <param name="robot_description" command="$(find xacro)/xacro.py '$(find robot3us_sim)/urdf/m2wr.xacro'" />
 
- <node ns="$(arg nom)" name="urdf_spawner_$(arg nom)" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-x $(arg x) -y $(arg y) -z $(arg z) -unpause -urdf -model model_$(arg nom) -param /robot_description"/>
+ <node name="urdf_spawner_$(arg nom)" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-x $(arg x) -y $(arg y) -z $(arg z) -unpause -urdf -model model_$(arg nom) -param /robot_description"/>
 
 
 <!-- send fake joint values -->
@@ -33,6 +33,4 @@
   <!-- Combine joint values -->
   <node  name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
 
-  <!-- Show in Rviz   -->
- <node  name="rviz" pkg="rviz" type="rviz" args="-d $(find robot3us_sim)/config/robot3us.rviz" />
-</launch>
+ </launch>

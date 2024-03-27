@@ -17,7 +17,7 @@
     <node  ns = "t1" name="mybot_spawn2" pkg="gazebo_ros" type="spawn_model" output="screen"
           args="-urdf -param robot_description -model m2wr -x $(arg x) -y $(arg y) -z $(arg z)" />
   -->
- <node ns="$(arg nom)" name="urdf_spawner_$(arg nom)" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-x $(arg x) -y $(arg y) -z $(arg z) -unpause -urdf -model model_$(arg nom) -param /robot_description"/>
+ <node name="urdf_spawner_$(arg nom)" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-x $(arg x) -y $(arg y) -z $(arg z) -unpause -urdf -model model_$(arg nom) -param /robot_description"/>
 
 
 </launch>
