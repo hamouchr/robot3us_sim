@@ -20,7 +20,7 @@
 
 <!--include file="$(find robot3us_sim)/launch/spawn_robot.launch" /-->
 
-<param name="robot_description" command="$(find xacro)/xacro.py '$(find robot3us_sim)/urdf/m2wr.xacro'" />
+<param name="robot_description" command="$(find xacro)/xacro '$(find robot3us_sim)/urdf/m2wr.xacro'" />
 
  <node name="urdf_spawner_$(arg nom)" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-x $(arg x) -y $(arg y) -z $(arg z) -wait -unpause -urdf -model model_$(arg nom) -param /robot_description"/>
 
