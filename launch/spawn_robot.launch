@@ -2,7 +2,7 @@
 <!-- Simulate robot in gazebo: To load our robot into the empty world  -->
 <launch>
 <arg name="nom" default="r1"/>
-    <param name="robot_description" command="$(find xacro)/xacro.py '$(find robot3us_sim)/urdf/m2wr.xacro'" />
+    <param name="robot_description" command="$(find xacro)/xacro '$(find robot3us_sim)/urdf/m2wr.xacro'" />
 
     <arg name="x" default="2"/>
     <arg name="y" default="2"/>
