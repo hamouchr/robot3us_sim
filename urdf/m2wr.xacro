@@ -292,7 +292,7 @@
          <gaussianNoise>0.005</gaussianNoise>
          <alwaysOn>true</alwaysOn>
          <updateRate>50</updateRate>
-         <topicName>us_sensor_left</topicName>
+         <topicName>us_sensor_right</topicName>
          <frameName>sensor_us_link_left</frameName>
          <radiation>SONAR</radiation>
          <fov>0.2967</fov>
@@ -330,7 +330,7 @@
          <gaussianNoise>0.005</gaussianNoise>
          <alwaysOn>true</alwaysOn>
          <updateRate>50</updateRate>
-         <topicName>us_sensor_right</topicName>
+         <topicName>us_sensor_left</topicName>
          <frameName>sensor_us_link_right</frameName>
          <radiation>SONAR</radiation>
          <fov>0.2967</fov>
