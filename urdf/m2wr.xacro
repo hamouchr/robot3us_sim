@@ -146,7 +146,7 @@
     </collision>
 </link>
 
-<link name="sensor_us_link_left">
+<link name="sensor_us_link_right">
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
@@ -172,7 +172,7 @@
     </collision>
 </link>
 
-<link name="sensor_us_link_right">
+<link name="sensor_us_link_left">
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
@@ -211,17 +211,17 @@
   </joint>
 
 
-   <joint name="joint_sensor_us_right" type="fixed">
+   <joint name="joint_sensor_us_left" type="fixed">
     <origin xyz="0.15 0.15 0" rpy="0 0 1.57"/>
     <parent link="link_chassis_rb3"/>
-    <child link="sensor_us_link_right"/>
+    <child link="sensor_us_link_left"/>
   </joint>
 
   
-   <joint name="joint_sensor_us_left" type="fixed">
+   <joint name="joint_sensor_us_right" type="fixed">
     <origin xyz="0.15 -0.15 0" rpy="0 0 -1.57"/>
     <parent link="link_chassis_rb3"/>
-    <child link="sensor_us_link_left"/>
+    <child link="sensor_us_link_right"/>
   </joint>
 
   <gazebo reference="sensor_us_link_front">
@@ -262,44 +262,6 @@
    </sensor>
    </gazebo>
 
-   <gazebo reference="sensor_us_link_left">
-   <sensor type="ray" name="TeraRanger">
-      <pose>0 0 0 0 0 0</pose>
-      <visualize>true</visualize>
-      <update_rate>50</update_rate>
-      <ray>
-         <scan>
-            <horizontal>
-               <samples>10</samples>
-               <resolution>1</resolution>
-               <min_angle>-0.14835</min_angle>
-               <max_angle>0.14835</max_angle>
-            </horizontal>
-            <vertical>
-               <samples>5</samples>
-               <resolution>1</resolution>
-               <min_angle>-0.05</min_angle>
-               <max_angle>0.05</max_angle>
-            </vertical>
-         </scan>
-         <range>
-            <min>0.01</min>
-            <max>2</max>
-            <resolution>0.02</resolution>
-         </range>
-      </ray>
-      <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
-         <gaussianNoise>0.005</gaussianNoise>
-         <alwaysOn>true</alwaysOn>
-         <updateRate>50</updateRate>
-         <topicName>us_sensor_right</topicName>
-         <frameName>sensor_us_link_left</frameName>
-         <radiation>SONAR</radiation>
-         <fov>0.2967</fov>
-      </plugin>
-   </sensor>
-   </gazebo>
-
    <gazebo reference="sensor_us_link_right">
    <sensor type="ray" name="TeraRanger">
       <pose>0 0 0 0 0 0</pose>
@@ -330,8 +292,46 @@
          <gaussianNoise>0.005</gaussianNoise>
          <alwaysOn>true</alwaysOn>
          <updateRate>50</updateRate>
-         <topicName>us_sensor_left</topicName>
+         <topicName>us_sensor_right</topicName>
          <frameName>sensor_us_link_right</frameName>
+         <radiation>SONAR</radiation>
+         <fov>0.2967</fov>
+      </plugin>
+   </sensor>
+   </gazebo>
+
+   <gazebo reference="sensor_us_link_left">
+   <sensor type="ray" name="TeraRanger">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>50</update_rate>
+      <ray>
+         <scan>
+            <horizontal>
+               <samples>10</samples>
+               <resolution>1</resolution>
+               <min_angle>-0.14835</min_angle>
+               <max_angle>0.14835</max_angle>
+            </horizontal>
+            <vertical>
+               <samples>5</samples>
+               <resolution>1</resolution>
+               <min_angle>-0.05</min_angle>
+               <max_angle>0.05</max_angle>
+            </vertical>
+         </scan>
+         <range>
+            <min>0.01</min>
+            <max>2</max>
+            <resolution>0.02</resolution>
+         </range>
+      </ray>
+      <plugin filename="libgazebo_ros_range.so" name="gazebo_ros_range">
+         <gaussianNoise>0.005</gaussianNoise>
+         <alwaysOn>true</alwaysOn>
+         <updateRate>50</updateRate>
+         <topicName>us_sensor_left</topicName>
+         <frameName>sensor_us_link_left</frameName>
          <radiation>SONAR</radiation>
          <fov>0.2967</fov>
       </plugin>
