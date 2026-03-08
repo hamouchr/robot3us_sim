@@ -14,12 +14,15 @@ Utiliser les scripts .sh se trouvant dans le dossier scripts ( à copier à la r
 
 #### avec le monde world1 
 ./run_robot_in_world.sh world1 "/nomRobot" 2 2
+./run_parallax.sh world1 "/nomRobot" 2 2
 
 #### avec le monde world2 
 ./run_robot_in_world.sh world2 "/nomRobot" 2 2
+./run_parallax.sh world2 "/nomRobot" 2 2
 
 #### avec le monde world3 
 ./run_robot_in_world.sh world3 "/nomRobot" 2 2
+./run_parallax.sh world3 "/nomRobot" 2 2
 
 ### Possibilité de chargeer le monde seul sans le robot
 
