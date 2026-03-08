@@ -2,7 +2,7 @@
 <launch>
 
 <arg name="world" default="world1" />
-  <arg name="nom" default="r1"/>
+  <arg name="nom" default="parallax"/>
    <arg name="x" default="2"/>
     <arg name="y" default="2"/>
     <arg name="z" default="0.0"/>
